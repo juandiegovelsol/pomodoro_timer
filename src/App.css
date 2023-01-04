@@ -1,38 +1,86 @@
+/* .backCircle {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.midCircle {
+  height: 98%;
+  width: 98%;
+  border-radius: 50%;
+  background-color: #9d0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.topCircle {
+  height: 98%;
+  width: 98%;
+  border-radius: 50%;
+  background-color: #2b2a30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #2b2a30;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.timerWrapper {
+  /*  background-color: #000000; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  border-radius: 50%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.timer {
+  grid-area: 1 / 1 / 2 / 2;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+}
+.timerContent {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding-top: 150px;
+}
+.timerClock {
+  font-family: "Montserrat";
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: aliceblue;
+  font-size: 130px;
+  font-weight: 500;
+  padding-bottom: 100px;
 }
-
-.App-link {
-  color: #61dafb;
+.timerButton {
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.timerConfigWrapper {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
