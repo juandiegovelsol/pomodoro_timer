@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import ReactAudioPlayer from "react-audio-player";
 import "./App.css";
 import gear from "./images/gear.svg";
 import check from "./images/check.svg";
@@ -16,10 +14,6 @@ const renderTime = ({ remainingTime }) => {
       : Math.floor(remainingTime / 60);
   const seconds =
     remainingTime % 60 < 10 ? "0" + (remainingTime % 60) : remainingTime % 60;
-  /* console.log(remainingTime); */
-  if (remainingTime === 3) {
-    play();
-  }
   if (remainingTime === 0) {
     return <article>Time to rest!</article>;
   }
@@ -29,19 +23,19 @@ const renderTime = ({ remainingTime }) => {
     </div>
   );
 };
+
 const play = () => {
   new Audio(clockSound).play();
 };
 
 function App() {
   const [timerKey, setTimerKey] = useState(0);
-  const [durationTimer, setDurationTimer] = useState(120);
+  const [durationTimer, setDurationTimer] = useState(900);
   const [timerObj, setTimerObj] = useState([
     {
       key: 0,
       timerKey: 0,
       isPlaying: false,
-      duration: 100,
       strokeColor: "#9d0000",
       buttonClass: "timerButton",
       imgSrc: gear,
@@ -49,19 +43,20 @@ function App() {
       modTimerClass: "timerConfigModHidden",
     },
   ]);
-  const [songIsPlaying, setSongIsPlaying] = useState(false);
 
   const handleButtonClick = () => {
+    let timeout = (durationTimer - 2) * 1000;
     let newTimerObj = [...timerObj];
     if (newTimerObj[0].isPlaying === false) {
       newTimerObj[0].isPlaying = true;
       newTimerObj[0].buttonText = "S T O P";
-      setSongIsPlaying(true);
+      setTimeout(() => {
+        play();
+      }, timeout);
     } else {
       setTimerKey((prevTimerKey) => prevTimerKey + 1);
       newTimerObj[0].isPlaying = false;
       newTimerObj[0].buttonText = "S T A R T";
-      setSongIsPlaying(false);
     }
     setTimerObj(newTimerObj);
   };
@@ -111,7 +106,6 @@ function App() {
                 strokeWidth={5}
                 trailColor={"#000000"}
                 colors={timerObj.strokeColor}
-                /* updateInterval={0.01} */
                 onComplete={() => ({ shouldRepeat: true, delay: 1 })}
               >
                 {renderTime}
