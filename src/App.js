@@ -16,6 +16,10 @@ const renderTime = ({ remainingTime }) => {
       : Math.floor(remainingTime / 60);
   const seconds =
     remainingTime % 60 < 10 ? "0" + (remainingTime % 60) : remainingTime % 60;
+  /* console.log(remainingTime); */
+  if (remainingTime === 3) {
+    play();
+  }
   if (remainingTime === 0) {
     return <article>Time to rest!</article>;
   }
@@ -24,6 +28,9 @@ const renderTime = ({ remainingTime }) => {
       {minutes}:{seconds}
     </div>
   );
+};
+const play = () => {
+  new Audio(clockSound).play();
 };
 
 function App() {
@@ -104,6 +111,7 @@ function App() {
                 strokeWidth={5}
                 trailColor={"#000000"}
                 colors={timerObj.strokeColor}
+                /* updateInterval={0.01} */
                 onComplete={() => ({ shouldRepeat: true, delay: 1 })}
               >
                 {renderTime}
@@ -136,11 +144,6 @@ function App() {
                   alt="plus"
                 ></img>
               </div>
-              <ReactAudioPlayer
-                src="./static/old-alarm-clock.mp3"
-                autoPlay={songIsPlaying}
-                loop={true}
-              />
             </article>
           </section>
         );
