@@ -44,7 +44,6 @@
   align-items: center;
   z-index: 2;
   padding-top: 300px;
-  /*   box-shadow: 100px 0px 10px 5px rgba(35, 35, 35, 0.5); */
 }
 .timerClock {
   font-family: "BebasNeueBook";
@@ -67,6 +66,14 @@
   color: whitesmoke;
   visibility: visible;
   font-family: "Montserrat";
+}
+.timerButton:hover,
+.timerButton:focus,
+.timerConfigMod:hover,
+.timerConfigMod:focus,
+.timerConfig:hover,
+.timerConfig:focus {
+  cursor: pointer;
 }
 .timerButtonHidden {
   width: auto;

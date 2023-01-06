@@ -15,7 +15,11 @@ const renderTime = ({ remainingTime }) => {
   const seconds =
     remainingTime % 60 < 10 ? "0" + (remainingTime % 60) : remainingTime % 60;
   if (remainingTime === 0) {
-    return <article>Time to rest!</article>;
+    setTimeout(() => {
+      console.log("Time's Up");
+      alert('Time\'s Up!\nClick "STOP" button to reset timer');
+    }, 500);
+    return <div className="timerClock">{"00:00"}</div>;
   }
   return (
     <div className="timerClock">
@@ -106,7 +110,6 @@ function App() {
                 strokeWidth={5}
                 trailColor={"#000000"}
                 colors={timerObj.strokeColor}
-                onComplete={() => ({ shouldRepeat: true, delay: 1 })}
               >
                 {renderTime}
               </CountdownCircleTimer>
