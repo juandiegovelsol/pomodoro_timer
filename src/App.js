@@ -48,15 +48,21 @@ function App() {
     },
   ]);
 
-  const handleButtonClick = () => {
+  const playClock = () => {
     let timeout = (durationTimer - 2) * 1000;
+    setTimeout(() => {
+      if (timerObj[0].isPlaying === true) {
+        play();
+      }
+    }, timeout);
+  };
+
+  const handleButtonClick = () => {
     let newTimerObj = [...timerObj];
     if (newTimerObj[0].isPlaying === false) {
       newTimerObj[0].isPlaying = true;
       newTimerObj[0].buttonText = "S T O P";
-      setTimeout(() => {
-        play();
-      }, timeout);
+      playClock();
     } else {
       setTimerKey((prevTimerKey) => prevTimerKey + 1);
       newTimerObj[0].isPlaying = false;

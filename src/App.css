@@ -27,7 +27,7 @@
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0px 0px 50px 5px rgba(101, 101, 101, 0.5),
-    0px 5px 20px 10px rgba(0, 0, 0, 1),
+    0px 7px 20px 8px rgba(0, 0, 0, 1),
     inset 0px 0px 100px 10px rgba(0, 0, 0, 0.5);
 }
 .timer {
@@ -46,8 +46,7 @@
   padding-top: 300px;
 }
 .timerClock {
-  font-family: "BebasNeueBook";
-  /* font-family: "Bebas Neue", sans-serif; */
+  font-family: "BebasNeueBook", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,15 +64,7 @@
   font-weight: 400;
   color: whitesmoke;
   visibility: visible;
-  font-family: "Montserrat";
-}
-.timerButton:hover,
-.timerButton:focus,
-.timerConfigMod:hover,
-.timerConfigMod:focus,
-.timerConfig:hover,
-.timerConfig:focus {
-  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
 }
 .timerButtonHidden {
   width: auto;
@@ -103,4 +94,12 @@
   height: 30px;
   filter: invert(45%) sepia(94%) saturate(4%) hue-rotate(354deg) brightness(94%)
     contrast(93%) drop-shadow(0px 3px 2px rgb(0 0 0 / 0.6));
+}
+.timerButton:hover,
+.timerButton:focus,
+.timerConfigMod:hover,
+.timerConfigMod:focus,
+.timerConfig:hover,
+.timerConfig:focus {
+  cursor: pointer;
 }
